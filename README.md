@@ -48,12 +48,17 @@ The primary fact table contains detailed ER patient records capturing admissions
 | Patient Satisfaction Score     | Satisfaction rating provided by patient |
 | Patient Waittime               | Time (in minutes) patient waited before service |
 | Patients CM                    | Custom metric (e.g., case management count) |
+
 ### Date Table
-A separate DateTable is created as a date dimension to support time-based analysis with the following fields:
-- Date
-- Month
-- Month Number
-- Year
+A comprehensive **Date Table** was created using DAX to enable temporal analysis and support time-based visualizations.  
+**Columns included in the Date Table:**
+
+| Column Name | Description |
+|-------------|-------------|
+| Date        | Unique calendar date |
+| Month       | Month name (e.g., January, February) |
+| Year        | Year (e.g., 2023, 2024) |
+| Month Year  | Concatenated month and year (e.g., Jan 2023, Feb 2024) |
 
 ### Data Model Relationships
 The data model follows a **star schema**, where the ER dataset acts as the central fact table and is connected to the **DateTable** through the **Patient Admission Date** field. This relationship enables efficient month-wise and year-wise analysis for building time-based visualizations and trends.
